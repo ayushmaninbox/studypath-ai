@@ -150,7 +150,7 @@
   }
 
   .card-elevated {
-    @apply card shadow-lg hover:shadow-xl transition-shadow duration-default;
+    @apply card shadow-lg hover:shadow-xl transition-shadow duration-base;
   }
 
   .card-glass {
