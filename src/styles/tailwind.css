@@ -8,7 +8,7 @@
 @layer base {
   :root {
     /* Enhanced Core Colors with better contrast */
-    --color-background: #FEFEFE; /* ultra-clean white */
+    --color-background: 254 254 254; /* ultra-clean white */
     --color-foreground: #0F172A; /* slate-900 for better readability */
     --color-card: #FFFFFF; /* pure white with subtle shadow */
     --color-card-foreground: #0F172A; /* slate-900 */

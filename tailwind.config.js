@@ -10,7 +10,7 @@ export default {
         border: 'var(--color-border)', // light gray
         input: 'var(--color-input)', // pure white
         ring: 'var(--color-ring)', // blue-500
-        background: 'var(--color-background)', // warm off-white
+        background: 'rgb(var(--color-background) / <alpha-value>)', // warm off-white
         foreground: 'var(--color-foreground)', // near-black
         primary: {
           DEFAULT: 'rgb(var(--color-primary) / <alpha-value>)', // blue-500
