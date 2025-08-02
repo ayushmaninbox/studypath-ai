@@ -88,7 +88,7 @@ export default {
       },
       transitionDuration: {
         'fast': '150ms',
-        'DEFAULT': '200ms',
+        'base': '200ms',
         'slow': '300ms',
       },
       transitionTimingFunction: {

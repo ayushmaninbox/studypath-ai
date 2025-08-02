@@ -138,7 +138,7 @@
 
   /* Smooth transitions for all interactive elements */
   button, a, input, textarea, select {
-    @apply transition-all duration-default;
+    @apply transition-all duration-base;
   }
 }
 
@@ -163,11 +163,11 @@
 
   /* Enhanced Button hover effects */
   .btn-hover-lift {
-    @apply transition-all duration-default hover:shadow-floating hover:-translate-y-1 active:translate-y-0 active:shadow-md;
+    @apply transition-all duration-base hover:shadow-floating hover:-translate-y-1 active:translate-y-0 active:shadow-md;
   }
 
   .btn-hover-glow {
-    @apply transition-all duration-default hover:shadow-glow;
+    @apply transition-all duration-base;
   }
 
   .btn-gradient {
@@ -197,7 +197,7 @@
 
   /* Enhanced contextual tooltip styles */
   .tooltip-enter {
-    @apply transition-all duration-default delay-300 translate-y-2 opacity-0 scale-95;
+    @apply transition-all duration-base delay-300 translate-y-2 opacity-0 scale-95;
   }
 
   .tooltip-enter-active {
@@ -218,7 +218,7 @@
 
   /* Floating action button styles */
   .fab {
-    @apply fixed bottom-6 right-6 z-50 rounded-full shadow-floating hover:shadow-xl transition-all duration-default;
+    @apply fixed bottom-6 right-6 z-50 rounded-full shadow-floating hover:shadow-xl transition-all duration-base;
   }
 
   /* Enhanced form styles */
@@ -227,7 +227,7 @@
   }
 
   .form-input {
-    @apply w-full px-4 py-3 bg-background border border-border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-default;
+    @apply w-full px-4 py-3 bg-background border border-border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-base;
   }
 
   .form-input:hover {
@@ -288,7 +288,7 @@
 
   /* Enhanced navigation styles */
   .nav-item {
-    @apply px-4 py-2 rounded-lg text-sm font-medium transition-all duration-default;
+    @apply px-4 py-2 rounded-lg text-sm font-medium transition-all duration-base;
   }
 
   .nav-item-active {
@@ -491,11 +491,11 @@
 
   /* Enhanced interaction states */
   .interactive {
-    @apply transition-all duration-default hover:scale-105 active:scale-95;
+    @apply transition-all duration-base hover:scale-105 active:scale-95;
   }
 
   .interactive-subtle {
-    @apply transition-all duration-default hover:bg-muted/50 active:bg-muted;
+    @apply transition-all duration-base hover:bg-muted/50 active:bg-muted;
   }
 
   /* Enhanced focus states */
