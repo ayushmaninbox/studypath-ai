@@ -13,7 +13,7 @@ export default {
         background: 'var(--color-background)', // warm off-white
         foreground: 'var(--color-foreground)', // near-black
         primary: {
-          DEFAULT: 'var(--color-primary)', // blue-500
+          DEFAULT: 'rgb(var(--color-primary) / <alpha-value>)', // blue-500
           foreground: 'var(--color-primary-foreground)', // white
         },
         secondary: {

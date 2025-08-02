@@ -21,7 +21,7 @@
     --color-ring: #3B82F6; /* blue-500 */
 
     /* Enhanced Brand Colors with better gradients */
-    --color-primary: #2563EB; /* blue-600 for better contrast */
+    --color-primary: 37 99 235; /* blue-600 for better contrast */
     --color-primary-foreground: #FFFFFF; /* white */
     --color-secondary: #7C3AED; /* violet-600 */
     --color-secondary-foreground: #FFFFFF; /* white */
