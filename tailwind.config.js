@@ -26,7 +26,7 @@ export default {
         },
         muted: {
           DEFAULT: 'var(--color-muted)', // light gray
-          foreground: 'var(--color-muted-foreground)', // medium gray
+          foreground: 'rgb(var(--color-muted-foreground) / <alpha-value>)', // medium gray
         },
         accent: {
           DEFAULT: 'var(--color-accent)', // emerald-500
