@@ -38,88 +38,91 @@ const RoadmapCard = ({ roadmap, onEdit, onShare, onDelete }) => {
   };
 
   return (
-    <div className="bg-card border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-200 group">
+    <div className="card-elevated rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border border-border/50 animate-fade-in">
       {/* Thumbnail */}
-      <div className="relative h-32 bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 flex items-center justify-center">
+      <div className="relative h-36 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-50"></div>
         <Icon 
           name={getSubjectIcon(roadmap?.subject)} 
-          size={32} 
-          className="text-primary/60" 
+          size={40} 
+          className="text-primary/70 relative z-10" 
         />
-        <div className="absolute top-2 right-2">
-          <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(roadmap?.status)}`}>
+        <div className="absolute top-3 right-3">
+          <span className={`px-3 py-1.5 rounded-full text-xs font-semibold shadow-sm ${getStatusColor(roadmap?.status)}`}>
             {roadmap?.status?.replace('-', ' ')}
           </span>
         </div>
       </div>
       {/* Content */}
-      <div className="p-4">
+      <div className="p-6">
         <div className="flex items-start justify-between mb-2">
-          <h3 className="font-heading font-semibold text-foreground text-sm line-clamp-2 flex-1">
+          <h3 className="font-heading font-bold text-foreground text-base line-clamp-2 flex-1 group-hover:text-primary transition-colors duration-200">
             {roadmap?.title}
           </h3>
         </div>
 
         <div className="flex items-center space-x-2 mb-3">
-          <span className="px-2 py-1 bg-muted rounded text-xs text-muted-foreground">
+          <span className="px-3 py-1.5 bg-muted/80 rounded-lg text-xs font-medium text-muted-foreground">
             {roadmap?.subject}
           </span>
-          <span className="text-xs text-muted-foreground">
+          <span className="text-xs text-muted-foreground font-medium">
             {roadmap?.totalTopics} topics
           </span>
         </div>
 
         {/* Progress Bar */}
-        <div className="mb-3">
+        <div className="mb-4">
           <div className="flex items-center justify-between text-xs mb-1">
-            <span className="text-muted-foreground">Progress</span>
-            <span className="text-primary font-medium">{roadmap?.progress}%</span>
+            <span className="text-muted-foreground font-medium">Progress</span>
+            <span className="text-primary font-bold">{roadmap?.progress}%</span>
           </div>
-          <div className="w-full bg-muted rounded-full h-2">
+          <div className="progress-bar h-2.5">
             <div 
-              className="bg-primary rounded-full h-2 transition-all duration-300"
+              className="progress-fill h-2.5"
               style={{ width: `${roadmap?.progress}%` }}
             />
           </div>
         </div>
 
         {/* Metadata */}
-        <div className="flex items-center justify-between text-xs text-muted-foreground mb-4">
-          <span>Updated {roadmap?.lastUpdated}</span>
+        <div className="flex items-center justify-between text-xs text-muted-foreground mb-5">
+          <span className="font-medium">Updated {roadmap?.lastUpdated}</span>
           <div className="flex items-center">
             <Icon name="Clock" size={12} className="mr-1" />
-            {roadmap?.estimatedTime}
+            <span className="font-medium">{roadmap?.estimatedTime}</span>
           </div>
         </div>
 
         {/* Actions */}
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-3">
           <Button
-            variant="default"
+            variant="gradient"
             size="sm"
             onClick={handleViewRoadmap}
             iconName="Eye"
             iconPosition="left"
             iconSize={16}
-            className="flex-1"
+            className="flex-1 shadow-md hover:shadow-lg"
           >
             View
           </Button>
           
           <Button
-            variant="ghost"
+            variant="outline"
             size="sm"
             onClick={() => onEdit(roadmap?.id)}
             iconName="Edit"
             iconSize={16}
+            className="hover:bg-primary/10 hover:text-primary hover:border-primary/20"
           />
           
           <Button
-            variant="ghost"
+            variant="outline"
             size="sm"
             onClick={() => onShare(roadmap?.id)}
             iconName="Share"
             iconSize={16}
+            className="hover:bg-secondary/10 hover:text-secondary hover:border-secondary/20"
           />
         </div>
       </div>

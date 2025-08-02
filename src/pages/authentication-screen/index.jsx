@@ -92,29 +92,29 @@ const AuthenticationScreen = () => {
   );
 
   return (
-    <div className="min-h-screen bg-background relative flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background relative flex items-center justify-center p-4">
       <AuthBackground />
       
-      <div className="relative z-10 w-full max-w-md">
+      <div className="relative z-10 w-full max-w-md animate-fade-in">
         {/* Logo */}
         <Logo />
         
         {/* Welcome Message */}
-        <div className="text-center mb-8">
-          <h1 className="text-2xl font-heading font-bold text-foreground mb-2">
+        <div className="text-center mb-8 animate-slide-up">
+          <h1 className="text-3xl font-heading font-bold text-foreground mb-3 text-gradient">
             {mode === 'login' ? 'Welcome back!' : 'Get started today'}
           </h1>
-          <p className="text-muted-foreground">
+          <p className="text-muted-foreground text-lg leading-relaxed">
             {mode === 'login' ?'Sign in to access your personalized learning roadmaps' :'Create your account and start building custom study paths'
             }
           </p>
         </div>
         
         {/* Authentication Card */}
-        <div className="bg-card border shadow-lg rounded-lg p-6 sm:p-8 animate-fade-in">
+        <div className="card-glass shadow-xl rounded-xl p-6 sm:p-8 animate-scale-in border border-border/50">
           <AuthToggle mode={mode} onModeChange={setMode} />
           
-          <div className="transition-all duration-300">
+          <div className="transition-all duration-500">
             {mode === 'login' ? (
               <LoginForm
                 onSubmit={handleLogin}
@@ -140,14 +140,14 @@ const AuthenticationScreen = () => {
         </div>
         
         {/* Footer */}
-        <div className="text-center mt-6">
+        <div className="text-center mt-8 animate-fade-in">
           <p className="text-xs text-muted-foreground">
             By continuing, you agree to our{' '}
-            <button className="text-primary hover:text-primary/80 transition-colors duration-200">
+            <button className="text-primary hover:text-primary/80 transition-colors duration-200 underline underline-offset-2">
               Terms of Service
             </button>{' '}
             and{' '}
-            <button className="text-primary hover:text-primary/80 transition-colors duration-200">
+            <button className="text-primary hover:text-primary/80 transition-colors duration-200 underline underline-offset-2">
               Privacy Policy
             </button>
           </p>
