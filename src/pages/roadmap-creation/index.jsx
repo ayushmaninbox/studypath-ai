@@ -218,30 +218,28 @@ const RoadmapCreation = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-muted/20 to-background">
+    <div className="min-h-screen bg-background">
       <AppHeader 
         user={user} 
         onAuthAction={handleAuthAction}
       />
       
-      <main className="content-max-width content-spacing py-12">
+      <main className="content-max-width content-spacing py-8">
         {/* Page Header */}
-        <div className="text-center mb-12 animate-fade-in">
-          <h1 className="text-4xl sm:text-5xl font-heading font-bold text-gradient mb-6">
+        <div className="text-center mb-8">
+          <h1 className="text-3xl sm:text-4xl font-heading font-bold text-foreground mb-4">
             Create Your Learning Roadmap
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Transform your syllabus into an interactive, structured learning path with AI-powered topic extraction and curated resources.
           </p>
         </div>
 
         {/* Creation Wizard */}
-        <div className="animate-slide-up">
-          <CreationWizard currentStep={currentStep} totalSteps={3} />
-        </div>
+        <CreationWizard currentStep={currentStep} totalSteps={3} />
 
         {/* Main Content */}
-        <div className="max-w-4xl mx-auto animate-fade-in">
+        <div className="max-w-4xl mx-auto">
           {currentStep === 1 && !isProcessing && (
             <div className="space-y-6">
               <UploadSection
@@ -254,23 +252,22 @@ const RoadmapCreation = () => {
               
               {/* Anonymous User Notice */}
               {!user && (
-                <div className="card-glass bg-accent/5 border border-accent/20 rounded-xl p-6 animate-slide-up">
+                <div className="bg-accent/10 border border-accent/20 rounded-lg p-4">
                   <div className="flex items-start space-x-3">
-                    <Icon name="Info" size={24} className="text-accent mt-0.5" />
+                    <Icon name="Info" size={20} className="text-accent mt-0.5" />
                     <div>
-                      <h4 className="font-semibold text-foreground mb-2">
+                      <h4 className="font-medium text-foreground mb-1">
                         Creating as Guest
                       </h4>
-                      <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                      <p className="text-sm text-muted-foreground mb-2">
                         Your roadmap will be saved locally. Sign up to sync across devices and access advanced features.
                       </p>
                       <Button
-                        variant="gradient"
+                        variant="outline"
                         size="sm"
                         onClick={() => navigate('/authentication-screen')}
                         iconName="UserPlus"
                         iconPosition="left"
-                        className="shadow-md hover:shadow-lg"
                       >
                         Create Account
                       </Button>
@@ -315,15 +312,15 @@ const RoadmapCreation = () => {
         </div>
 
         {/* Help Section */}
-        <div className="max-w-4xl mx-auto mt-16 card-glass rounded-xl p-8 animate-fade-in">
-          <h3 className="text-xl font-heading font-bold text-foreground mb-6 flex items-center">
-            <Icon name="HelpCircle" size={24} className="mr-3 text-primary" />
+        <div className="max-w-4xl mx-auto mt-12 bg-muted/30 rounded-lg p-6">
+          <h3 className="text-lg font-heading font-medium text-foreground mb-4 flex items-center">
+            <Icon name="HelpCircle" size={20} className="mr-2 text-primary" />
             Need Help?
           </h3>
-          <div className="grid md:grid-cols-2 gap-8 text-sm">
+          <div className="grid md:grid-cols-2 gap-6 text-sm">
             <div>
-              <h4 className="font-semibold text-foreground mb-3">Best Practices</h4>
-              <ul className="text-muted-foreground space-y-2 leading-relaxed">
+              <h4 className="font-medium text-foreground mb-2">Best Practices</h4>
+              <ul className="text-muted-foreground space-y-1">
                 <li>• Upload clear, text-based PDF files</li>
                 <li>• Include course objectives and learning outcomes</li>
                 <li>• Use structured content with clear headings</li>
@@ -331,8 +328,8 @@ const RoadmapCreation = () => {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-foreground mb-3">Supported Formats</h4>
-              <ul className="text-muted-foreground space-y-2 leading-relaxed">
+              <h4 className="font-medium text-foreground mb-2">Supported Formats</h4>
+              <ul className="text-muted-foreground space-y-1">
                 <li>• PDF files (up to 10MB)</li>
                 <li>• Plain text input</li>
                 <li>• Course syllabi and curricula</li>

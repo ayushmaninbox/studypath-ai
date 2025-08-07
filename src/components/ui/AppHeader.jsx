@@ -72,11 +72,11 @@ const AppHeader = ({ user = null, onAuthAction = () => {} }) => {
   return (
     <>
       <header 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'nav-backdrop shadow-lg border-b border-border/50' : 'bg-background/95 backdrop-blur-sm'
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
+          isScrolled ? 'nav-backdrop shadow-md' : 'bg-background'
         }`}
       >
-        <div className="content-max-width content-spacing py-1">
+        <div className="content-max-width content-spacing">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Logo />
@@ -89,7 +89,7 @@ const AppHeader = ({ user = null, onAuthAction = () => {} }) => {
                   onClick={() => handleNavigation(item?.path)}
                   className={`flex items-center px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 hover:bg-muted group ${
                     isActivePath(item?.path)
-                      ? 'bg-primary/10 text-primary shadow-sm border border-primary/20' :'text-muted-foreground hover:text-foreground hover:bg-muted/80'
+                      ? 'bg-primary/10 text-primary' :'text-muted-foreground hover:text-foreground'
                   }`}
                   title={item?.tooltip}
                 >
@@ -108,22 +108,21 @@ const AppHeader = ({ user = null, onAuthAction = () => {} }) => {
               {user ? (
                 <div className="hidden md:flex items-center space-x-3">
                   <Button
-                    variant="outline"
+                    variant="ghost"
                     size="sm"
                     onClick={() => handleNavigation('/profile-settings')}
                     iconName="Settings"
                     iconSize={18}
-                    className={isActivePath('/profile-settings') ? 'bg-primary/10 text-primary border-primary/20' : ''}
+                    className={isActivePath('/profile-settings') ? 'bg-muted' : ''}
                   >
                     Profile
                   </Button>
                   <Button
-                    variant="ghost"
+                    variant="outline"
                     size="sm"
                     onClick={() => onAuthAction('logout')}
                     iconName="LogOut"
                     iconSize={18}
-                    className="text-muted-foreground hover:text-error"
                   >
                     Sign Out
                   </Button>
@@ -134,15 +133,13 @@ const AppHeader = ({ user = null, onAuthAction = () => {} }) => {
                     variant="ghost"
                     size="sm"
                     onClick={() => onAuthAction('login')}
-                    className="text-muted-foreground hover:text-foreground"
                   >
                     Sign In
                   </Button>
                   <Button
-                    variant="gradient"
+                    variant="default"
                     size="sm"
                     onClick={() => onAuthAction('register')}
-                    className="shadow-md hover:shadow-lg"
                   >
                     Get Started
                   </Button>

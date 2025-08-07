@@ -10,10 +10,10 @@ export default {
         border: 'var(--color-border)', // light gray
         input: 'var(--color-input)', // pure white
         ring: 'var(--color-ring)', // blue-500
-        background: 'rgb(var(--color-background) / <alpha-value>)', // warm off-white
+        background: 'var(--color-background)', // warm off-white
         foreground: 'var(--color-foreground)', // near-black
         primary: {
-          DEFAULT: 'rgb(var(--color-primary) / <alpha-value>)', // blue-500
+          DEFAULT: 'var(--color-primary)', // blue-500
           foreground: 'var(--color-primary-foreground)', // white
         },
         secondary: {
@@ -26,7 +26,7 @@ export default {
         },
         muted: {
           DEFAULT: 'var(--color-muted)', // light gray
-          foreground: 'rgb(var(--color-muted-foreground) / <alpha-value>)', // medium gray
+          foreground: 'var(--color-muted-foreground)', // medium gray
         },
         accent: {
           DEFAULT: 'var(--color-accent)', // emerald-500
@@ -88,7 +88,7 @@ export default {
       },
       transitionDuration: {
         'fast': '150ms',
-        'base': '200ms',
+        'DEFAULT': '200ms',
         'slow': '300ms',
       },
       transitionTimingFunction: {

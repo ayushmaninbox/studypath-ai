@@ -16,15 +16,15 @@ const RoadmapNode = memo(({ data, selected }) => {
 
   const getNodeStyles = () => {
     if (isCompleted) {
-      return 'bg-success/10 border-success text-success-foreground shadow-lg hover:shadow-xl border-2';
+      return 'bg-success/10 border-success text-success-foreground shadow-md';
     }
     if (isCurrent) {
-      return 'bg-primary/10 border-primary text-primary-foreground shadow-xl ring-2 ring-primary/30 border-2 animate-glow';
+      return 'bg-primary/10 border-primary text-primary-foreground shadow-lg ring-2 ring-primary/20';
     }
     if (selected) {
-      return 'bg-accent/10 border-accent text-accent-foreground shadow-xl ring-2 ring-accent/30 border-2';
+      return 'bg-accent/10 border-accent text-accent-foreground shadow-lg ring-2 ring-accent/20';
     }
-    return 'card-glass border-border text-card-foreground shadow-md hover:shadow-lg hover:-translate-y-1 border';
+    return 'bg-card border-border text-card-foreground shadow-default hover:shadow-md';
   };
 
   const getDifficultyColor = () => {
@@ -43,8 +43,8 @@ const RoadmapNode = memo(({ data, selected }) => {
   return (
     <div 
       className={`
-        relative min-w-[220px] max-w-[300px] p-5 rounded-xl
-        transition-all duration-300 cursor-pointer touch-target
+        relative min-w-[200px] max-w-[280px] p-4 rounded-lg border-2 
+        transition-all duration-200 cursor-pointer touch-target
         ${getNodeStyles()}
       `}
       onClick={handleClick}
@@ -53,27 +53,27 @@ const RoadmapNode = memo(({ data, selected }) => {
       <Handle
         type="target"
         position={Position?.Top}
-        className="w-4 h-4 bg-primary border-2 border-white shadow-md"
+        className="w-3 h-3 bg-primary border-2 border-white"
       />
       <Handle
         type="source"
         position={Position?.Bottom}
-        className="w-4 h-4 bg-primary border-2 border-white shadow-md"
+        className="w-3 h-3 bg-primary border-2 border-white"
       />
       {/* Node Header */}
-      <div className="flex items-start justify-between mb-3">
+      <div className="flex items-start justify-between mb-2">
         <div className="flex-1 min-w-0">
-          <h3 className="font-heading font-bold text-base leading-tight truncate">
+          <h3 className="font-heading font-semibold text-sm leading-tight truncate">
             {label}
           </h3>
           {nodeType === 'topic' && (
-            <div className="flex items-center mt-2 space-x-2">
-              <span className={`text-xs font-semibold px-2 py-1 rounded-full ${getDifficultyColor()} bg-opacity-20`}>
+            <div className="flex items-center mt-1 space-x-2">
+              <span className={`text-xs font-medium ${getDifficultyColor()}`}>
                 {difficulty?.charAt(0)?.toUpperCase() + difficulty?.slice(1)}
               </span>
               {resourceCount > 0 && (
-                <div className="flex items-center text-xs text-muted-foreground bg-muted/50 px-2 py-1 rounded-full">
-                  <Icon name="BookOpen" size={10} className="mr-1" />
+                <div className="flex items-center text-xs text-muted-foreground">
+                  <Icon name="BookOpen" size={12} className="mr-1" />
                   {resourceCount}
                 </div>
               )}
@@ -84,32 +84,32 @@ const RoadmapNode = memo(({ data, selected }) => {
         {/* Status Icon */}
         <div className="flex-shrink-0 ml-2">
           {isCompleted ? (
-            <div className="w-7 h-7 bg-success rounded-full flex items-center justify-center shadow-md">
-              <Icon name="Check" size={16} color="white" />
+            <div className="w-6 h-6 bg-success rounded-full flex items-center justify-center">
+              <Icon name="Check" size={14} color="white" />
             </div>
           ) : isCurrent ? (
-            <div className="w-7 h-7 bg-primary rounded-full flex items-center justify-center animate-pulse shadow-md">
-              <Icon name="Play" size={14} color="white" />
+            <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center animate-pulse">
+              <Icon name="Play" size={12} color="white" />
             </div>
           ) : (
-            <div className="w-7 h-7 bg-muted rounded-full flex items-center justify-center shadow-sm">
-              <Icon name="Circle" size={14} className="text-muted-foreground" />
+            <div className="w-6 h-6 bg-muted rounded-full flex items-center justify-center">
+              <Icon name="Circle" size={12} className="text-muted-foreground" />
             </div>
           )}
         </div>
       </div>
       {/* Node Description */}
       {description && (
-        <p className="text-xs text-muted-foreground line-clamp-2 mb-3 leading-relaxed">
+        <p className="text-xs text-muted-foreground line-clamp-2 mb-2">
           {description}
         </p>
       )}
       {/* Node Footer */}
-      <div className="flex items-center justify-between text-xs mt-3">
+      <div className="flex items-center justify-between text-xs">
         <div className="flex items-center space-x-2">
           {nodeType === 'topic' && (
             <>
-              <div className="flex items-center text-muted-foreground bg-muted/30 px-2 py-1 rounded-full">
+              <div className="flex items-center text-muted-foreground">
                 <Icon name="Clock" size={12} className="mr-1" />
                 <span>~30min</span>
               </div>
@@ -118,21 +118,21 @@ const RoadmapNode = memo(({ data, selected }) => {
         </div>
         
         <div className="flex items-center space-x-1">
-          <Icon name="ChevronRight" size={14} className="text-muted-foreground" />
+          <Icon name="ChevronRight" size={12} className="text-muted-foreground" />
         </div>
       </div>
       {/* Progress Indicator for Subtopics */}
       {nodeType === 'chapter' && data?.subtopics && (
-        <div className="mt-3 pt-3 border-t border-border/50">
+        <div className="mt-2 pt-2 border-t border-border/50">
           <div className="flex items-center justify-between text-xs">
-            <span className="text-muted-foreground font-medium">Progress</span>
-            <span className="font-semibold">
+            <span className="text-muted-foreground">Progress</span>
+            <span className="font-medium">
               {data?.completedSubtopics || 0}/{data?.subtopics?.length}
             </span>
           </div>
-          <div className="progress-bar h-2 mt-2">
+          <div className="w-full bg-muted rounded-full h-1.5 mt-1">
             <div 
-              className="progress-fill h-2"
+              className="bg-primary rounded-full h-1.5 transition-all duration-300"
               style={{ 
                 width: `${((data?.completedSubtopics || 0) / data?.subtopics?.length) * 100}%` 
               }}

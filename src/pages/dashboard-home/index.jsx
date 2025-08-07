@@ -257,10 +257,10 @@ const DashboardHome = () => {
   const filteredRoadmaps = getFilteredRoadmaps();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-muted/20 to-background">
+    <div className="min-h-screen bg-background">
       <AppHeader user={user} onAuthAction={handleAuthAction} />
       
-      <main className="content-max-width content-spacing py-8">
+      <main className="content-max-width content-spacing py-6">
         {/* Welcome Section */}
         <WelcomeSection user={user} currentTime={currentTime} />
 

@@ -487,7 +487,7 @@ const InteractiveRoadmapView = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-muted/10 to-background">
+    <div className="min-h-screen bg-background">
       <AppHeader user={user} onAuthAction={handleAuthAction} />
       <RoadmapNavigationOverlay
         roadmapTitle={roadmapData?.title}
@@ -506,7 +506,7 @@ const InteractiveRoadmapView = () => {
         roadmapTitle={roadmapData?.title}
         className="fixed top-16 left-0 right-0 z-20"
       />
-      <div className="pt-32 h-screen bg-gradient-to-br from-muted/5 to-background">
+      <div className="pt-32 h-screen">
         <ReactFlowProvider>
           <ReactFlow
             nodes={nodes}
@@ -519,11 +519,11 @@ const InteractiveRoadmapView = () => {
             minZoom={0.1}
             maxZoom={2}
             defaultViewport={{ x: 0, y: 0, zoom: 0.8 }}
-            className="bg-gradient-to-br from-background to-muted/20"
+            className="bg-background"
           >
             <Background 
-              color="#E2E8F0" 
-              gap={24} 
+              color="#E5E7EB" 
+              gap={20} 
               size={1}
               variant="dots"
             />
@@ -538,12 +538,12 @@ const InteractiveRoadmapView = () => {
                 nodeStrokeWidth={2}
                 pannable
                 zoomable
-                className="card-glass border border-border/50 rounded-lg shadow-lg"
+                className="bg-card border border-border rounded-lg"
               />
             )}
             
             <Controls 
-              className="card-glass border border-border/50 rounded-lg shadow-lg"
+              className="bg-card border border-border rounded-lg shadow-default"
               showInteractive={false}
             />
           </ReactFlow>
